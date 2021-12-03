@@ -1,0 +1,6 @@
+format: jb-book
+root: Introduction
+chapters:
+- file: Vectors
+- file: Verbs
+- file: Dicts

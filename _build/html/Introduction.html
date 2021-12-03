@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction &#8212; What about k?</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Vectors everywhere" href="Vectors.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">What about k?</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Vectors.html">
+   Vectors everywhere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Verbs.html">
+   Built-in verbs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dicts.html">
+   Dicts
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xpqz/learnk"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xpqz/learnk/issues/new?title=Issue%20on%20page%20%2FIntroduction.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-k">
+   Why k?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#open-source-k">
+   Open source k
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nomenclature-and-style">
+   Nomenclature and style
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-this-book">
+   About this book
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>k is a family of concise, fast vector-oriented languages designed by <a class="reference external" href="https://aplwiki.com/wiki/Arthur_Whitney">Arthur Whitney</a>. Calling k a “family” is deliberate; there is no single definitive k, but instead a sequence of slightly incompatible versions. If you decide to stick with k, you’ll see mentions of <code class="docutils literal notranslate"><span class="pre">k4</span></code>, <code class="docutils literal notranslate"><span class="pre">k5</span></code> etc. Exactly what those numbers mean aren’t important–they’re “generations”, rather than versions, and not every generation was ever made available to the public, or even <a class="reference external" href="https://github.com/JohnEarnest/ok/blob/gh-pages/docs/Fromk5Tok6.md">completed</a>. A Python 2/3 split every time, if you like.</p>
+<p>Reputedly, Arthur always starts from scratch when making the next generation of k, happily and deliberately sacrificing backward compatibility in order to build something better and faster, cut fat or revert design decisions that didn’t pan out. The bleeding edge k is being developed right now (at the time of writing) by Arthur’s latest venture, <a class="reference external" href="https://shakti.com/">Shakti</a>. Shakti-k is dubbed by some as <code class="docutils literal notranslate"><span class="pre">k9</span></code>. If this all sounds a bit anarchic, that’s because it is. There is no expectation that code written for one generation will always work unchanged in the next. Embrace it. Evolution is healthy.</p>
+<p>The main commercial version of k available today is <a class="reference external" href="https://code.kx.com/home/">q/kdb+</a> from <a class="reference external" href="https://kx.com/">kX systems</a>, Arthur’s previous venture. It’s stable, fast, “batteries included” and really the benchmark k against which others are measured. kX’s k version is usually thought of as <code class="docutils literal notranslate"><span class="pre">k4</span></code>. However, kX’s main product is the language <code class="docutils literal notranslate"><span class="pre">q</span></code>–a k-derivative (implemented in k) that looks (a bit) more like a traditional programming language, and the <a class="reference external" href="https://tech.marksblogg.com/billion-nyc-taxi-kdb.html">freakishly fast</a>, distributed columnar store <a class="reference external" href="https://en.wikipedia.org/wiki/Kdb%2B">kdb+</a>. kX views k as “exposed infrastructure” and actively discourages its users from using it. kX provides exceptionally good <a class="reference external" href="https://code.kx.com/q/">documentation</a> for q which is always worthwhile reading: even if q isn’t k, it’s close enough many times. <code class="docutils literal notranslate"><span class="pre">k9</span></code> currently has Arthur-style documentation only; the ref-card.</p>
+<p>A commercial license for <code class="docutils literal notranslate"><span class="pre">q/kdb+</span></code> is eye-wateringly expensive and likely out of reach for hobbyists. You can, however, <a class="reference external" href="https://code.kx.com/q/learn/install/">run it for free</a> under a non-commercial evaluation license, but note that the product is “tethered”, and so sends telemetry data back to base and cannot be used without an active internet connection.</p>
+<p>You can try <code class="docutils literal notranslate"><span class="pre">k9</span></code> under a free non-commercial evaluation <a class="reference external" href="https://shakti.com/download/license">license</a>, too, but <code class="docutils literal notranslate"><span class="pre">k9</span></code> is very much a moving, changing target at the time of writing.</p>
+<div class="section" id="why-k">
+<h2>Why k?<a class="headerlink" href="#why-k" title="Permalink to this headline">¶</a></h2>
+<p>I’d like to avoid the advocacy piece, as there seems to be little middle ground. As you’ve landed here, you’ve clearly somehow sought out k, and you likely have an idea what it’s about. K, like its <a class="reference external" href="https://aplwiki.com/wiki/Ken_Iverson">Iversonian</a> siblings <a class="reference external" href="https://en.wikipedia.org/wiki/APL_(programming_language)">APL</a> and <a class="reference external" href="https://www.jsoftware.com/#/README">J</a>, values conciseness, or perhaps we should say terseness, of representation and speed of execution.</p>
+<p>The same baseless accusations of “unreadable”, “write-only” and “impossible to learn” are leveled at all Iversonian languages, k included. I covered that a bit in the <a class="reference external" href="https://xpqz.github.io/learnapl/intro.html#but-it-s-unreadable">introduction</a> to my book on APL, and so won’t repeat that here. The k cognoscenti, when told the language is unreadable (again) will simply show you the whites of their eyes, mumble “whatever”, and get on with their lives. Readability is a property of the reader, not the language.</p>
+<p>K is a general-purpose programming language that excels as a tool for data wrangling, analytics and transformation.  The analytics use case really drove both its inception and adoption in the financial industry. Compared with APL it’s more consistent (partly a consequence of Arthur’s propensity for always starting from scratch), perhaps a smidge less mathematically pure (instead choosing to optimise for speed and pragmatism), fewer “batteries included” and with a vector-, rather than array-oriented model.</p>
+<p>If you come to k knowing APL or J, the transition is pretty pain-free. If k is your first foray into vector and array languages, coming perhaps from Python or JavaScript, the learning ramp will feel steeper than you’re used to, but at least the vector model will feel more familiar than APL’s rank. In k, like in Python, depth and rank are the same thing.</p>
+<p>K is a teeny, tiny language. It has no libraries to speak of. You can pick up the basics in an afternoon. In terms of complexity, it’s about as hard as learning regular expressions. However, like with most things, it takes tons of practice to become <em>good</em> at it. In the hands of a master practitioner, it’s truly a sight to behold.</p>
+<p>If you persist, you’ll find you have a computational superpower at your fingertips. You’ll learn new ways to think about data. Going back to a mainstream language will feel dull and boring.</p>
+<p>I think of k as APL’s “more punk rock little sister”. It’s not for everyone.</p>
+</div>
+<div class="section" id="open-source-k">
+<h2>Open source k<a class="headerlink" href="#open-source-k" title="Permalink to this headline">¶</a></h2>
+<p>There is a small, but thriving, open source k community, and there is probably half a dozen or more open source k implementations of k knocking around of varying degree of ambition. The k language deserves a future outside the commercial implementations marketed to the financial industry, and this book will deal solely with open source k. If you’re a hedge fund jock who sees k as a way to get ahead, you’re welcome here, too, but note that we’ll not touch on either <code class="docutils literal notranslate"><span class="pre">q</span></code>, <code class="docutils literal notranslate"><span class="pre">kdb+</span></code> or the Shakti equivalents.</p>
+<p>This book is written as a <a class="reference external" href="https://jupyterbook.org/intro.html">jupyter-book</a>, using the <a class="reference external" href="https://codeberg.org/ngn/k">ngn/k</a> <a class="reference external" href="https://github.com/xpqz/ngnk_kernel">kernel</a> developed specifically for this book. All examples are thus run under <code class="docutils literal notranslate"><span class="pre">ngn/k</span></code>, which is a <code class="docutils literal notranslate"><span class="pre">k7</span></code>. You can run <code class="docutils literal notranslate"><span class="pre">ngn/k</span></code> directly in your <a class="reference external" href="https://ngn.bitbucket.io/k/">browser</a>, too, and we’ll link all examples to a live, web-based repl if you want to experiment.</p>
+<p>Installing <code class="docutils literal notranslate"><span class="pre">ngn/k</span></code> requires you to get your hands dirty and build from source. At the moment, it’s buildable on Linux, FreeBSD, OpenBSD and MacOS.</p>
+<p>John Earnest’s <code class="docutils literal notranslate"><span class="pre">oK</span></code> is another <code class="docutils literal notranslate"><span class="pre">k5/7</span></code>, available <a class="reference external" href="http://johnearnest.github.io/ok/index.html">on-line</a>. Most examples here should run unchanged under oK, and if that’s not the case, we’ll try to point that out. <code class="docutils literal notranslate"><span class="pre">oK</span></code> has a well-written <a class="reference external" href="https://github.com/JohnEarnest/ok/blob/gh-pages/docs/Manual.md">manual</a> in addition to the traditional Arthur-style ref-card, and John’s also written a more general intro to <a class="reference external" href="https://github.com/JohnEarnest/ok/blob/gh-pages/docs/Programming.md">programming in k</a>, too.</p>
+<p>There is also <a class="reference external" href="https://github.com/kevinlawler/kona">kona</a>, a <code class="docutils literal notranslate"><span class="pre">k3</span></code>, and <a class="reference external" href="https://ktye.github.io/">ktye/k</a>, which is the only open source k to support some of the ksql database extensions.</p>
+</div>
+<div class="section" id="nomenclature-and-style">
+<h2>Nomenclature and style<a class="headerlink" href="#nomenclature-and-style" title="Permalink to this headline">¶</a></h2>
+<p>K uses nomenclature introduced in the J language (another APL derivative) with which Arthur was deeply involved. You may come across Arthur’s sketched J interpreter fragment, known as the <a class="reference external" href="https://code.jsoftware.com/wiki/Essays/Incunabulum">J Incunabulum</a>, and been either awestruck or repelled that one can <em>do</em> such unspeakable things in c. In J, and also in k, we borrow terms from linguistics, rather than from mathematics, to describe the building blocks of the language. J/k folk insist that this makes it easier to learn and understand, but if you’re already versed in other programming languages, this is sure to grate a bit in the beginning. What the hell do you mean “adverb”?</p>
+<p>In k, we have nouns, verbs and adverbs, rather than data, functions and operators. We’ll stick to these conventions. K, like APL and J, also uses the words “monadic” and “dyadic” to refer to verbs or adverbs taking one or two arguments respectively. “Monadic” has nothing to do with Haskell monads, you’ll be pleased to hear.</p>
+<p>Traditions in k dictate that code should be as terse as possible. The use of unnecessary whitespace and non-single-letter names for things are seen as signs of inexperience. However, for the purposes of this book, we’ll make no apologies for breaking such style guide lines where we think this aids clarity.</p>
+</div>
+<div class="section" id="about-this-book">
+<h2>About this book<a class="headerlink" href="#about-this-book" title="Permalink to this headline">¶</a></h2>
+<p>I can’t claim to be an expert on k. Like with my <a class="reference external" href="https://xpqz.github.io/learnapl">APL book</a>, this is a jazzed-up version of the notes I took when learning. There is a lack of accessible introductory texts to k for experienced practitioners of other languages, and this is my contribution to help plug that gap. Moreover, k deserves to break free of its association with the financial industry, and perhaps this can help with that, too.</p>
+<p>Ks have traditionally been ‘documented’ via a so-called <a class="reference external" href="https://kparc.com/k.txt">ref-card</a>. This is the briefest possible listing of built-ins, usually with zero context or explanation. This is part of the sometimes unhelpful mythology surrounding k, and – some might argue – a semi-deliberate barrier: you’re expected to get yourself to a point where you also believe that the ref-card is sufficient documentation, and so complete the circle. <code class="docutils literal notranslate"><span class="pre">ngn/k</span></code>, the dialect we’re chiefly concerned with here, carries on with the ref-card tradition, but its version is actually unusually comprehensive. You can view its ref card(s) with a few backslash commands in the repl, starting with a single <code class="docutils literal notranslate"><span class="pre">\</span></code> for the index page:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>\
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\   help               \\         exit
+\a  license(AGPLv3)    \l file.k  load
+\0  types              \t:n expr  time(elapsed milliseconds after n runs)
+\+  verbs              \v         variables
+\:  I/O verbs          \f         functions
+\&#39;  adverbs            \cd path   change directory
+\`  symbols            \other     command(through /bin/sh)
+\h  summary
+</pre></div>
+</div>
+</div>
+</div>
+<p>By no means should you expect to be able to actually <em>learn</em> k from the ref cards, but – and I do feel slightly uncomfortable saying it – you’ll soon find them indispensable. For example, <code class="docutils literal notranslate"><span class="pre">\+</span></code> lists the built-in <s>functions</s> verbs with both monadic and dyadic forms in one compact screen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>\+
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Verbs:    : + - * % ! &amp; | &lt; &gt; = ~ , ^ # _ $ ? @ . 0: 1:
+notation: [c]har [i]nt [n]umber(int|float) [s]ymbol [a]tom [d]ict
+          [f]unc(monad) [F]unc(dyad) [xyz]any
+special:  var:y     set    a:1;a -&gt; 1
+          (v;..):y  unpack (b;(c;d)):(2 3;4 5);c -&gt; 4
+          :x        return {:x+1;2}[3] -&gt; 4
+          $[x;y;..] cond   $[0;`a;&quot;\0&quot;;`b;`;`c;();`d;`e] -&gt; `e
+          o[..]     recur  {$[x&lt;2;x;+/o&#39;x-1 2]}9 -&gt; 34
+          [..]      progn  [0;1;2;3] -&gt; 3
+
+::  self      ::12 -&gt; 12
+ :  right     1 :2 -&gt; 2   &quot;abc&quot;:&#39;&quot;d&quot; -&gt; &quot;ddd&quot;
+ +x flip      +(&quot;ab&quot;;&quot;cd&quot;) -&gt; (&quot;ac&quot;;&quot;bd&quot;)
+N+N add       1 2+3 -&gt; 4 5
+ -N negate    - 1 2 -&gt; -1 -2
+N-N subtract  1-2 3 -&gt; -1 -2
+ *x first     *`a`b -&gt; `a   *(0 1;&quot;cd&quot;) -&gt; 0 1
+N*N multiply  1 2*3 4 -&gt; 3 8
+ %N sqrt      %25 -&gt; 5.0   %-1 -&gt; 0n
+N%N divide    4 3%2 -&gt; 2 1   4 3%2.0 -&gt; 2.0 1.5
+ !i enum      !3 -&gt; 0 1 2   !-3 -&gt; -3 -2 -1
+ !I odometer  !2 3 -&gt; (0 0 0 1 1 1;0 1 2 0 1 2)
+ !d keys      !`a`b!0 1 -&gt; `a`b
+ !S ns keys   a.b.c:1;a.b.d:2;!`a`b -&gt; ``c`d
+x!y dict      `a`b!1 2 -&gt; `a`b!1 2
+i!I div       -10!1234 567 -&gt; 123 56
+i!I mod       10!1234 567 -&gt; 4 7
+ &amp;I where     &amp;3 -&gt; 0 0 0   &amp;1 0 1 4 2 -&gt; 0 2 3 3 3 3 4 4
+ &amp;x deepwhere &amp;(0 1 0;1 0 0;1 1 1) -&gt; (0 1 2 2 2;1 0 0 1 2)
+N&amp;N min/and   2&amp;-1 3 -&gt; -1 2   0 0 1 1&amp;0 1 0 1 -&gt; 0 0 0 1
+ |x reverse   |&quot;abc&quot; -&gt; &quot;cba&quot;   |12 -&gt; 12
+N|N max/or    2|-1 3 -&gt; 2 3   0 0 1 1|0 1 0 1 -&gt; 0 1 1 1
+ &lt;X ascend    &lt;&quot;abacus&quot; -&gt; 0 2 1 3 5 4
+ &gt;X descend   &gt;&quot;abacus&quot; -&gt; 4 5 3 1 0 2
+ &lt;s open      fd:&lt;`&quot;/path/to/file.txt&quot;
+ &gt;i close     &gt;fd
+N&lt;N less      0 2&lt;1 -&gt; 1 0
+N&gt;N more      0 1&gt;0 2 -&gt; 0 0
+ =X group     =&quot;abracadabra&quot; -&gt; &quot;abrcd&quot;!(0 3 5 7 10;1 8;2 9;,4;,6)
+ =i unitmat   =3 -&gt; (1 0 0;0 1 0;0 0 1)
+N=N equal     0 1 2=0 1 3 -&gt; 1 1 0
+ ~x not       ~(0 2;``a;&quot;a \0&quot;;::;{}) -&gt; (1 0;1 0;0 0 1;1;0)
+x~y match     2 3~2 3 -&gt; 1   &quot;4&quot;~4 -&gt; 0   0~0.0 -&gt; 0
+ ,x enlist    ,0 -&gt; ,0   ,0 1 -&gt; ,0 1   ,`a!1 -&gt; +(,`a)!,,1
+x,y concat    0,1 2 -&gt; 0 1 2  &quot;a&quot;,1 -&gt; (&quot;a&quot;;1)
+ ^x null      ^(&quot; a&quot;;0 1 0N;``a;0.0 0n) -&gt; (1 0;0 0 1;1 0;0 1)
+a^y fill      1^0 0N 2 3 0N -&gt; 0 1 2 3 1   &quot;b&quot;^&quot; &quot; -&gt; &quot;b&quot;
+X^y without   &quot;abracadabra&quot;^&quot;bc&quot; -&gt; &quot;araadara&quot;
+ #x length    #&quot;abc&quot; -&gt; 3   #4 -&gt; 1   #`a`b`c!0 1 0 -&gt; 3
+i#y reshape   3#2 -&gt; 2 2 2
+I#y reshape   2 3#` -&gt; (```;```)
+f#y replicate (3&gt;#:&#39;)#(0;2 1 3;5 4) -&gt; (0;5 4)   {2}#&quot;ab&quot; -&gt; &quot;aabb&quot;
+x#d take      `c`d`f#`a`b`c`d!1 2 3 4 -&gt; `c`d`f!3 4 0N
+ _n floor     _12.34 -12.34 -&gt; 12 -13
+ _c lowercase _&quot;Ab&quot; -&gt; &quot;ab&quot;
+i_Y drop      2_&quot;abcde&quot; -&gt; &quot;cde&quot;   `b_`a`b`c!0 1 2 -&gt; `a`c!0 2
+I_Y cut       2 4 4_&quot;abcde&quot; -&gt; (&quot;cd&quot;;&quot;&quot;;,&quot;e&quot;)
+f_Y weed out  (3&gt;#:&#39;)_(0;2 1 3;5 4) -&gt; ,2 1 3
+X_i delete    &quot;abcde&quot;_2 -&gt; &quot;abde&quot;
+ $x string    $(12;&quot;ab&quot;;`cd;+) -&gt; (&quot;12&quot;;(,&quot;a&quot;;,&quot;b&quot;);&quot;cd&quot;;,&quot;+&quot;)
+i$C pad       5$&quot;abc&quot; -&gt; &quot;abc  &quot;   -3$&quot;a&quot; -&gt; &quot;  a&quot;
+s$y cast      `c$97 -&gt; &quot;a&quot;   `i$-1.2 -&gt; -1   `$&quot;a&quot; -&gt; `a
+s$y int       `I$&quot;-12&quot; -&gt; -12
+ ?x uniq      ?&quot;abacus&quot; -&gt; &quot;abcus&quot;
+X?y find      &quot;abcde&quot;?&quot;bfe&quot; -&gt; 1 0N 4
+i?x roll      3?1000 -&gt; 11 398 293   1?0 -&gt; ,-8164324247243690787
+i?x deal      -3?1000 -&gt; 11 398 293 /guaranteed distinct
+ @x type      @1 -&gt; `b   @&quot;ab&quot; -&gt; `C   @() -&gt; `A   @(@) -&gt; `v
+x@y apply(1)  {x+1}@2 -&gt; 3   &quot;abc&quot;@1 -&gt; &quot;b&quot;   (`a`b!0 1)@`b -&gt; 1
+ .S get       a:1;.`a -&gt; 1   b.c:2;.`b`c -&gt; 2
+ .C eval      .&quot;1+2&quot; -&gt; 3
+ .d values    .`a`b!0 1 -&gt; 0 1
+x.y apply(n)  {x*y+1}. 2 3 -&gt; 8   (`a`b`c;`d`e`f). 1 0 -&gt; `d
+
+@[x;y;f]   amend  @[&quot;ABC&quot;;1;_:] -&gt; &quot;AbC&quot;   @[2 3;1;{-x}] -&gt; 2 -3
+@[x;y;F;z] amend  @[&quot;abc&quot;;1;:;&quot;x&quot;] -&gt; &quot;axc&quot;   @[2 3;0;+;4] -&gt; 6 3
+.[x;y;f]   drill  .[(&quot;AB&quot;;&quot;CD&quot;);1 0;_:] -&gt; (&quot;AB&quot;;&quot;cD&quot;)
+.[x;y;F;z] drill  .[(&quot;ab&quot;;&quot;cd&quot;);1 0;:;&quot;x&quot;] -&gt; (&quot;ab&quot;;&quot;xd&quot;)
+.[f;y;f]   try    .[+;1 2;&quot;E:&quot;,] -&gt; 3   .[+;1,`2;&quot;E:&quot;,] -&gt; &quot;E:typ&quot;
+?[x;y;z]   splice ?[&quot;abcd&quot;;1 3;&quot;xyz&quot;] -&gt; &quot;axyzd&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Are you ready? Let’s crack open the kool-aid.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "ngnk"
+        },
+        kernelOptions: {
+            kernelName: "ngnk",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ngnk'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="Vectors.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Vectors everywhere</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Stefan Kruger, Computational Array and Magic<br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a></p>
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

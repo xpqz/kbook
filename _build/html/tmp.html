@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dicts &#8212; What about k?</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">What about k?</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Vectors.html">
+   Vectors everywhere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dicts.html">
+   Dicts
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/tmp.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xpqz/learnk"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xpqz/learnk/issues/new?title=Issue%20on%20page%20%2Ftmp.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="dicts">
+<h1>Dicts<a class="headerlink" href="#dicts" title="Permalink to this headline">¶</a></h1>
+<p>Other resources: <a class="reference external" href="https://code.kx.com/q/basics/dictsandtables/">kx docs</a>, <a class="reference external" href="https://github.com/JohnEarnest/ok/blob/gh-pages/docs/Manual.md">oK docs</a>, <a class="reference external" href="http://nsl.com/papers/m.txt">nsl: Lists are Maps</a></p>
+<p>k has a beautiful dict implementation, which should be the envy of any APLer. A k dict is a key-value lookup table that can map anything to anything. To construct a dict in k, we have several options, the easiest is to join a vector of keys to a vector of values with dyadic <code class="docutils literal notranslate"><span class="pre">!</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>keys:`bob`adam`sue`rita
+vals:23 54 12 82
+keys!vals                         / construct a dict
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`bob`adam`sue`rita!23 54 12 82
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can list the keys using <code class="docutils literal notranslate"><span class="pre">!</span></code> and the values with <code class="docutils literal notranslate"><span class="pre">.</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>d:keys!vals
+!d                                / get keys
+.d                                / get values
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`bob`adam`sue`rita
+23 54 12 82
+</pre></div>
+</div>
+</div>
+</div>
+<p>and indexing a dict follows the normal k conventions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>d[`sue]
+d@`rita
+d`rita`sue
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+82
+82 12
+</pre></div>
+</div>
+</div>
+</div>
+<p>Updating a dict, unlike updating a vector, has upsert semantics:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>d[`sue`adam`eric`frank]:1 2 3 4   / mixture of updates and inserts
+d
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`bob`adam`sue`rita`eric`frank!23 2 1 82 3 4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unlike dicts found in many other languages, a dict in k is guaranteed to retain its insertion order.
+This is a consequence of its implementation: adding an element to a dict appends the key to the key vector,
+and the value to the value vector.</p>
+<p>This means that we can take and drop items from the beginning and end, for example, taking the last two k-v pairs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>-2#`bob`adam`sue`rita`eric`frank!23 2 1 82 3 4  / take from the end
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`eric`frank!3 4
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we stated above, both keys and values can be any valid k-type. For example, we frequently need values to be vectors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>sales:`Mon`Tue`Wed`Thu`Fri!(1 4 8 9 4 5;3 6;7 0 0 9;2 8 0 9 9 7 6 7;0 6 2)
+sales
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`Mon`Tue`Wed`Thu`Fri!(1 4 8 9 4 5;3 6;7 0 0 9;2 8 0 9 9 7 6 7;0 6 2)
+</pre></div>
+</div>
+</div>
+</div>
+<p>In k, a dictionary is treated like any other vector when it comes to function application. Eaching a monad over a dict applies to the values, but leaves the keys, just like eaching a monad over a vector applies to a vector’s <em>elements</em>, but leaves its indexes. This can be extraordinarily useful. If we say that the above <code class="docutils literal notranslate"><span class="pre">sales</span></code> dict holds product ids sold each day, how many sales did we make per day?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>#&#39;sales                            / apply monadic # to each value, retaining keys
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`Mon`Tue`Wed`Thu`Fri!6 2 4 8 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we internalise the concept that a dict is just like a vector, but with a different domain, a lot of clever things follow. For example, we know that in k we can find the indexes of 1s in a boolean vector with <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>&amp;1 0 0 1 1 0 0 1 0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 3 4 7
+</pre></div>
+</div>
+</div>
+</div>
+<p>So what will happen if we apply <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> to a dict with a boolean range?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>&amp;`rita`bob`sue`adam`frank!0 0 1 0 1         / get all keys which have a value of 1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`sue`frank
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similarly, we can use <code class="docutils literal notranslate"><span class="pre">?</span></code> – which for vectors finds the index of the first occurrence of its right argument in its left – to do a reverse lookup: find the key for a given value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>(`bob`adam`sue`rita!23 54 12 82)?12         / lookup key by value                                        
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`sue
+</pre></div>
+</div>
+</div>
+</div>
+<p>If there were several keys holding the same value, we’d only get the <em>first</em> such key. This follows from the behaviour of <code class="docutils literal notranslate"><span class="pre">?</span></code> for vectors, and the fact that dicts retain the insertion ordering. If we wanted ALL matching keys, we could do</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>&amp;5=`bob`adam`sue`rita!5 1 5 3               / All keys having value 5
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`bob`sue
+</pre></div>
+</div>
+</div>
+</div>
+<p>What happens if we reduce a dict? Again, thinking of a dict as a vector with a range and domain, let’s find the max of a dict:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>|/`rita`bob`sue`adam`frank!12 7 87 32 11    / find the max value in a dict
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>87
+</pre></div>
+</div>
+</div>
+</div>
+<p>In other words, reductions (and scans) apply to the <em>values</em> of a dict.</p>
+<p>It should come as no surprise that any function application that makes sense on a vector can also be applied to a dict. Keys odd values? Sure (and thus demonstrating three different meanings of <code class="docutils literal notranslate"><span class="pre">!</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>&amp;2!`a`b`c`d`e`f`g`h!!8                      / keys of odd values
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`b`d`f`h
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could apply <code class="docutils literal notranslate"><span class="pre">filter</span></code> directly to the dict, too, which operates on the values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>(2!)#`a`b`c`d`e`f`g`h!!8                    / filter values
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`b`d`f`h!1 3 5 7
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">#</span></code> is <a class="reference external" href="https://code.kx.com/q/ref/take/#dictionary">special-cased</a> for dicts if the left argument is a vector of symbols (or a string in oK and ngn/k), where it becomes <code class="docutils literal notranslate"><span class="pre">take</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>`b`c#`a`b`c`d`e`f`g`h!!8                    / take the `b and `c pairs
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`b`c!1 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you <code class="docutils literal notranslate"><span class="pre">take</span></code> keys that don’t exist in the dict, you get a <code class="docutils literal notranslate"><span class="pre">0N</span></code> place-holder:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>`b`Q`c#`a`b`c`d`e`f`g`h!!8                  / take non-existent key `Q
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`b`Q`c!1 0N 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>and, as a final spin on <code class="docutils literal notranslate"><span class="pre">#</span></code>, we can <code class="docutils literal notranslate"><span class="pre">replicate</span></code> (ngn/k-specific):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>{0 1 1 0 0 0 1 1}#`a`b`c`d`e`f`g`h!!8       / pick pairs by bool map
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`b`c`g`h!1 2 6 7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Monadic <code class="docutils literal notranslate"><span class="pre">=</span></code> becomes <code class="docutils literal notranslate"><span class="pre">group</span></code>. If you know APL, this is similar to <a class="reference external" href="https://xpqz.github.io/learnapl/key.html">key</a> (<code class="docutils literal notranslate"><span class="pre">⌸</span></code>). It takes a vector and creates a mapping from each unique element in order of occurrence to a vector of its indexes of occurrence:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>=&quot;a cat sat on a mat&quot;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;a ctsonm&quot;!(0 3 7 13 16;1 5 9 12 14;,2;4 8 17;,6;,10;,11;,15)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Group</span></code> can be applied to any vector, for example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>=1 2 1 1 3 8 9 9 9 1 1 8
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 2 3 8 9!(0 2 3 9 10;,1;,4;5 11;6 7 8)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we instead wanted frequency counts, we can use the <code class="docutils literal notranslate"><span class="pre">each-length</span></code> approach we used before,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>#&#39;=1 2 1 1 3 8 9 9 9 1 1 8             / lengths of groups
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 2 3 8 9!5 1 1 2 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>When using <code class="docutils literal notranslate"><span class="pre">group</span></code> like this, occasionally there is the need to ensure that all keys from some set are present, defaulting to some value should they not be present in the data. For example, if we’re calculating letter frequencies in a paragraph of text, we might want to make sure that any letters that aren’t present in the text are still entered into the table, but with a value of 0. Here’s one way we can achieve that using the <code class="docutils literal notranslate"><span class="pre">take</span></code> form of <code class="docutils literal notranslate"><span class="pre">#</span></code> and a “null-fill”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>abc:`c$&quot;a&quot;+!26                         / generate lower-case alphabet
+0^abc##&#39;=&quot;hereisaparagraphoftexts&quot;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;abcdefghijklmnopqrstuvwxyz&quot;!4 0 0 0 3 1 1 2 1 0 0 0 0 0 1 2 0 3 2 2 0 0 0 1 0 0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "ngnk"
+        },
+        kernelOptions: {
+            kernelName: "ngnk",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ngnk'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Stefan Kruger, Computational Array and Magic<br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a></p>
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
