@@ -4,10 +4,6 @@
 
 4 3 2 5 6 + 3 2 1 2 1 - 8 7 4 1 2
 
-::1
-::1 2 3 4
-::`a`b`c!1 2 3
-
 "hello":"world"
 
 :57
@@ -15,8 +11,11 @@
 a:1 2 3 4    / assignment
 a
 
-:a:(1 2 3 4 5;6 7 8 9 10)
+:a:(1 2 3 4 5;6 7 8 9 10)   / leading : for display purposes
 +a
+
++(1 2 3 4 5 6;0)     / broadcast atom
++(1 2 3 4 5 6;0 1)   / length error
 
 1 2 3 4 + 7
 
@@ -91,6 +90,8 @@ d[<d]            / select on grade up, a.k.a sort in ascending order
 
 ~1 0 0 1 1 0 0 0 0 1
 
+~2 0 8 0 0 9 0 8 0 8 6 6 5
+
 (1 0 0 1;0 1 0 1)~(1 0 0 1;0 1 0 1)
 (1 0 0 1;(0 1;0 1))~(1 0 0 1;0 1 0 1)
 
@@ -123,13 +124,15 @@ a b            / note: no stranding! this is interpreted as indexing!
 #42
 #,33
 
-5#1                       / Reshape the atom 1 to a length 5 vector (lengthening)
+5#1                        / Reshape the atom 1 to a length 5 vector (lengthening)
 
-3 3#8 3 4 1 2 9 5 7 6     / Reshape the vector 8 3 4... etc into a 3x3 matrix
+3 3#8 3 4 1 2 9 5 7 6      / Reshape the vector 8 3 4... etc into a 3x3 matrix
 
-5#8 3 4 1 2 9 5 7 6 7 4 2 / Reshape the right vector to length 5 (shortening)
+5#8 3 4 1 2 9 5 7 6 7 4 2  / Reshape the right vector to length 5 (shortening)
 
-5#,1 2 3                  / Take 5 instances of the vector 1 2 3
+-5#8 3 4 1 2 9 5 7 6 7 4 2 / Reshape the right vector to length 5, from the back
+
+5#,1 2 3                   / Take 5 instances of the vector 1 2 3
 
 `bob`eric`sam#`eve`frank`rita`bob`sue`sam!32 34 52 56 83 99
 

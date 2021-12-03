@@ -196,16 +196,6 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#self">
-   self
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     ::
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dex-assign">
    dex, assign
    <code class="docutils literal notranslate">
@@ -416,28 +406,7 @@
 </div>
 </div>
 </div>
-<p>The verbs + and - do have monadic versions, too, as we’ll see below. K will try to interpret verbs as dyadic first, and only where this can’t be done will it drop back to the monadic interpretation. This can occasionally be a source of unintended consequences, especially when we come to k’s comparatively limited form of tacit programming. There, you sometimes need to help k’s parser along, for example by forcing a particular verb to be interpreted in its monadic form. We’ll show some examples of what we mean a bit later on.</p>
 <p>But first, the promised run-down of the built-ins.</p>
-<div class="section" id="self">
-<h2>self <code class="docutils literal notranslate"><span class="pre">::</span></code><a class="headerlink" href="#self" title="Permalink to this headline">¶</a></h2>
-<p>Self, monadic <code class="docutils literal notranslate"><span class="pre">::</span></code>, returns its argument unchanged.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>::1
-::1 2 3 4
-::`a`b`c!1 2 3
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-1 2 3 4
-`a`b`c!1 2 3
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="dex-assign">
 <h2>dex, assign <code class="docutils literal notranslate"><span class="pre">:</span></code><a class="headerlink" href="#dex-assign" title="Permalink to this headline">¶</a></h2>
 <p>Dex, dyadic <code class="docutils literal notranslate"><span class="pre">:</span></code>, also called <code class="docutils literal notranslate"><span class="pre">right</span></code>, returns its right argument:</p>
@@ -486,7 +455,7 @@ a
 <p>Monadic <code class="docutils literal notranslate"><span class="pre">+</span></code> is <code class="docutils literal notranslate"><span class="pre">flip</span></code> or <code class="docutils literal notranslate"><span class="pre">transpose</span></code>. It flips the axes of an array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>:a:(1 2 3 4 5;6 7 8 9 10)
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>:a:(1 2 3 4 5;6 7 8 9 10)   / leading : for display purposes
 +a
 </pre></div>
 </div>
@@ -503,7 +472,29 @@ a
 </div>
 </div>
 </div>
-<p>Dyadic <code class="docutils literal notranslate"><span class="pre">+</span></code> is <code class="docutils literal notranslate"><span class="pre">add</span></code>:</p>
+<p>Flip will “broadcast” atoms, but otherwise the matrix cannot be “ragged”, which incurs a length error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>+(1 2 3 4 5 6;0)     / broadcast atom
++(1 2 3 4 5 6;0 1)   / length error
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1 0
+ 2 0
+ 3 0
+ 4 0
+ 5 0
+ 6 0)
+&#39;length
+ +(1 2 3 4 5 6;0 1)   / length error
+ ^
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dyadic <code class="docutils literal notranslate"><span class="pre">+</span></code> is <code class="docutils literal notranslate"><span class="pre">add</span></code>. No surprises there:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>1 2 3 4 + 7
@@ -884,7 +875,7 @@ d[&lt;d]            / select on grade up, a.k.a sort in ascending order
 </div>
 <div class="section" id="match-not">
 <h2>Match, not <code class="docutils literal notranslate"><span class="pre">~</span></code><a class="headerlink" href="#match-not" title="Permalink to this headline">¶</a></h2>
-<p>Monadic <code class="docutils literal notranslate"><span class="pre">~</span></code> is Boolean NOT. It flips 0 to 1, and 1 to 0:</p>
+<p>Monadic <code class="docutils literal notranslate"><span class="pre">~</span></code> is Boolean NOT. It flips 0 to 1, and 1 (for some definition of 1) to 0:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>~1 0 0 1 1 0 0 0 0 1
@@ -893,6 +884,19 @@ d[&lt;d]            / select on grade up, a.k.a sort in ascending order
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 1 0 0 1 1 1 1 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>For emphasis, not just Boolean vectors – it treats anything non-zero as truthy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>~2 0 8 0 0 9 0 8 0 8 6 6 5
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 0 1 1 0 1 0 1 0 0 0 0
 </pre></div>
 </div>
 </div>
@@ -1053,10 +1057,10 @@ a b            / note: no stranding! this is interpreted as indexing!
 </div>
 </div>
 </div>
-<p>In the dyadic version, we have several options, depending on the type of the arguments. If the left argument is an integer vector or an integer atom, we have <em>reshape</em>: it takes whatever is to the right, and squeezes that into the shape defined by the left argument, either dropping or repeating data as required.</p>
-<div class="cell docutils container">
+<p>In the dyadic version, we have several options, depending on the type of the arguments. If the left argument is an integer vector or an integer atom, we have <em>reshape</em>: it takes whatever is to the right, and squeezes that into the shape defined by the left argument, either dropping or repeating data as required [<a class="reference external" href="https://ngn.bitbucket.io/k#eJyNkFEOgjAQRP85xST8YIIYqIhew3iBShbaIK1pN4bjWxCNMZC4f7uZeTu7ZZxjpXY4k1fyTmBFkGx75GALiRuZlhVKPKhm65C8BmS0aTeRgIiPENgHeYFTkFU4LCFn96TNsgzENbSZNohBoJfs9BCVC7Aq9MUvzulW8RsaKJ+UiVfW8Zxuu877D5eiceEVo+Qq6y7kS0eUWPzgRXYUdmjjWZqaPGzzffpkfAIN72gn">try it</a>]</p>
+<div class="cell tag_no-link docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>5#1                       / Reshape the atom 1 to a length 5 vector (lengthening)
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>5#1                        / Reshape the atom 1 to a length 5 vector (lengthening)
 </pre></div>
 </div>
 </div>
@@ -1066,9 +1070,9 @@ a b            / note: no stranding! this is interpreted as indexing!
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_no-link docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>3 3#8 3 4 1 2 9 5 7 6     / Reshape the vector 8 3 4... etc into a 3x3 matrix
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>3 3#8 3 4 1 2 9 5 7 6      / Reshape the vector 8 3 4... etc into a 3x3 matrix
 </pre></div>
 </div>
 </div>
@@ -1080,9 +1084,9 @@ a b            / note: no stranding! this is interpreted as indexing!
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_no-link docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>5#8 3 4 1 2 9 5 7 6 7 4 2 / Reshape the right vector to length 5 (shortening)
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>5#8 3 4 1 2 9 5 7 6 7 4 2  / Reshape the right vector to length 5 (shortening)
 </pre></div>
 </div>
 </div>
@@ -1092,9 +1096,23 @@ a b            / note: no stranding! this is interpreted as indexing!
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<p>With a negative left we take from the end, rather than from the beginning:</p>
+<div class="cell tag_no-link docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>5#,1 2 3                  / Take 5 instances of the vector 1 2 3
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>-5#8 3 4 1 2 9 5 7 6 7 4 2 / Reshape the right vector to length 5, from the back
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7 6 7 4 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>The right can be nested, too:</p>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>5#,1 2 3                   / Take 5 instances of the vector 1 2 3
 </pre></div>
 </div>
 </div>
@@ -1325,7 +1343,7 @@ _&quot;Hello, World!&quot;   / downcase
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32 39 13
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>39 29 51
 </pre></div>
 </div>
 </div>
@@ -1338,7 +1356,7 @@ _&quot;Hello, World!&quot;   / downcase
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>,-1617955233203611231
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>,8894729323858522893
 </pre></div>
 </div>
 </div>
@@ -1351,7 +1369,7 @@ _&quot;Hello, World!&quot;   / downcase
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>78 28 90 52 33 37 21 35 10 85 38 77 43 19 81 27 73 34 92 59
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>53 23 0 58 37 42 93 5 61 29 31 25 11 97 3 45 54 76 70 75
 </pre></div>
 </div>
 </div>
