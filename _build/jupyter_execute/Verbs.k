@@ -109,7 +109,7 @@ a,b
 a:1 2 3 4
 b:7 8 9 10
 
-a b            / note: no stranding! this is interpreted as indexing!
+a b            / note: no stranding! this is interpreted as a@b
 
 ^0N
 
@@ -194,5 +194,26 @@ units!bases\16894
 
 2\54
 2/1 1 0 1 1 0
+
+:m:3 3#!9    
+m[1]         / pick row 1
+
+m:{x+5}
+m[1]
+
+m:{x+5}
+m@1
+
+m:3 3#!9
+m[1 0 2]   / pick rows 1, 0 and 2
+m[1][0]    / pick row 1 - a vector - and from this, pick element 0
+m[1;0]     / indexing at depth; can also be used for assignment
+m@1 0 2    / equivalent to m[1 0 2]
+(m@1)@0    / equivalent to m[1][0]
+
+{x+y}[23;76]  / call a function with two arguments
+{x+y}.23 76   / call a function with two arguments, taken as a list
+
+{x+y}.'(23 76;23 65;76 54)
 
 
