@@ -1,0 +1,1353 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adverbs &#8212; What about k?</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dicts" href="Dicts.html" />
+    <link rel="prev" title="Built-in verbs" href="Verbs.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">What about k?</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Vectors.html">
+   Vectors everywhere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Verbs.html">
+   Built-in verbs
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Adverbs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dicts.html">
+   Dicts
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Adverbs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xpqz/kbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xpqz/kbook/issues/new?title=Issue%20on%20page%20%2FAdverbs.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#each-f">
+   Each
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     f'
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduce-f-xf">
+   Reduce
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     F/
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     xF/
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scan-f-xf">
+   Scan
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     F\
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     xF\
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#each-prior-f-xf">
+   Each-prior
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     F':
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     xF':
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#each-left-each-right-f-f">
+   Each-left, each-right
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     F\:
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     F/:
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-i-f-i-f">
+   For
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     i
+    </span>
+    <span class="pre">
+     f/
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     i
+    </span>
+    <span class="pre">
+     f\
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#while-f-f-f-f">
+   While
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     f
+    </span>
+    <span class="pre">
+     f/
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     f
+    </span>
+    <span class="pre">
+     f\
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#converge-f-f">
+   Converge
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     f/
+    </span>
+   </code>
+   ,
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     f\
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#window-i-x">
+   Window
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     i':x
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stencil-i-f">
+   Stencil
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     i
+    </span>
+    <span class="pre">
+     f':
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bin-search-x">
+   Bin search
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     X'
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="adverbs">
+<h1>Adverbs<a class="headerlink" href="#adverbs" title="Permalink to this headline">¶</a></h1>
+<p>K’s adverbs, like their namesakes in linguistics, determine <em>how</em> a verb is applied to its arguments. We can think of them as advanced functional looping constructs. If you’re familiar with <em>filter</em>, <em>map</em> or <em>reduce</em> from other languages, these would be examples of adverbs in k. The adverbs in k tend to be overloaded on argument types, meaning that some care is required when deciphering code.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">ngn/k</span></code>, there is a ref-card for adverbs available as <code class="docutils literal notranslate"><span class="pre">\'</span></code>. The basic adverbs in most ks are <em>each</em> <code class="docutils literal notranslate"><span class="pre">'</span></code>, <em>reduce</em> <code class="docutils literal notranslate"><span class="pre">/</span></code>, <em>scan</em> <code class="docutils literal notranslate"><span class="pre">\</span></code>, <em>each-prior</em> <code class="docutils literal notranslate"><span class="pre">/:</span></code>, <em>each-right</em> <code class="docutils literal notranslate"><span class="pre">/:</span></code> and <em>each-left</em> <code class="docutils literal notranslate"><span class="pre">\:</span></code>, but many more are overloaded on the basic set depending on argument types and valence.</p>
+<p>As types matter so much for this, we’ll adopt the following notation, variations of which most ks use in their ref-cards:</p>
+<ul class="simple">
+<li><p><b>[c]</b>har</p></li>
+<li><p><b>[i]</b>nt</p></li>
+<li><p><b>[n]</b>umber(int|float)</p></li>
+<li><p><b>[s]</b>ymbol</p></li>
+<li><p><b>[a]</b>tom</p></li>
+<li><p><b>[d]</b>ict</p></li>
+<li><p><b>[f]</b>unc(monad)</p></li>
+<li><p><b>[F]</b>unc(dyad)</p></li>
+<li><p><b>[xyz]</b>any</p></li>
+</ul>
+<p>In other words, where we write <code class="docutils literal notranslate"><span class="pre">f'</span></code> we mean <code class="docutils literal notranslate"><span class="pre">'</span></code> applying a monad.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As a stylistic choice, we covered some items that are technically adverbs in the verbs chapter:</p>
+<ul class="simple">
+<li><p>encode, decode</p></li>
+<li><p>split, join</p></li>
+</ul>
+<p>Whilst they’re overloaded on adverb characters, they don’t quite fit the linguistic definition of an adverb - something that affects how a verb is applied. Arguably, <em>window</em> and <em>bin search</em> belong in this group, too.</p>
+</div>
+<div class="section" id="each-f">
+<h2>Each <code class="docutils literal notranslate"><span class="pre">f'</span></code><a class="headerlink" href="#each-f" title="Permalink to this headline">¶</a></h2>
+<p>Arguably the most fundamental of the adverbs is <em>each</em>, <code class="docutils literal notranslate"><span class="pre">f'</span></code>. This would be called <em>map</em> in other languages. It returns a vector of the results of applying <code class="docutils literal notranslate"><span class="pre">f</span></code> to every element in the right argument in turn. It follows that <code class="docutils literal notranslate"><span class="pre">f'x</span></code> will have the same length as <code class="docutils literal notranslate"><span class="pre">x</span></code>. For example, let’s count the length of each element in a nested list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>#&#39;(1 2 3 4 5;1 2;7 6 5;,6)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 2 3 1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reduce-f-xf">
+<h2>Reduce <code class="docutils literal notranslate"><span class="pre">F/</span></code>, <code class="docutils literal notranslate"><span class="pre">xF/</span></code><a class="headerlink" href="#reduce-f-xf" title="Permalink to this headline">¶</a></h2>
+<p>You’re most likely familiar with <em>reduce</em>, too. In k, it’s sometimes also called <em>over</em>, or <em>fold</em>. Reduce is also available in APL on the same symbol, but a huge advantage for k’s version is that it operates left to right, unlike APL’s version which operates right to left: k’s reduce is a so-called <em>foldl</em>. The left to right application of foldl is, for most people, the intuitive behaviour. <em>Reduce</em> is called “reduce” because it reduces the rank of the argument by 1. A list is reduced to a scalar. A matrix is reduced to a vector. A cuboid is reduced to a matrix, etc.</p>
+<p>One way to think of <em>reduce</em> is that it interjects its dyadic verb into the gaps between elements in a list. For example, the sum-reduction</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>+/1 2 3 4 5 6 7 8
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
+</pre></div>
+</div>
+</div>
+</div>
+<p>is equivalent to</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>1+2+3+4+5+6+7+8
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
+</pre></div>
+</div>
+</div>
+</div>
+<p>or – to be precise – although there is no difference in this case:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>(((((((1+2)+3)+4)+5)+6)+7)+8)    / foldL
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
+</pre></div>
+</div>
+</div>
+</div>
+<p>K’s <em>reduce</em> also allows you to seed the accumulator, that is, to start from a different value than the first element:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>+/!10     / unseeded reduce, accumulator starts set to the first value
+99+/!10   / seeded reduce
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45
+144
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another way to think of the seeding is that its prepending the seed to the list before applying the unseeded version:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>+/99,!10
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>144
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="scan-f-xf">
+<h2>Scan <code class="docutils literal notranslate"><span class="pre">F\</span></code>, <code class="docutils literal notranslate"><span class="pre">xF\</span></code><a class="headerlink" href="#scan-f-xf" title="Permalink to this headline">¶</a></h2>
+<p><em>Scan</em> is <em>reduce</em>’s brattier little sister. If we think back to reduce we just discussed, <em>scan</em> does the same thing, but instead of returning the final value, it returns the sequence of every intermediate application of <code class="docutils literal notranslate"><span class="pre">F</span></code>. In other words, the last value returned by <em>scan</em> would be the value returned by <em>reduce</em> if applied to the same data. If you’re familiar with Python’s NumPy, it has a sum-scan primitive built in, called <code class="docutils literal notranslate"><span class="pre">numpy.cumsum</span></code>. In k, we’d say</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>+/1+!10   / sum-reduce
++\1+!10   / sum-scan: note that the last element is the sum-reduction
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55
+1 3 6 10 15 21 28 36 45 55
+</pre></div>
+</div>
+</div>
+</div>
+<p>The elements in the sum-scan <code class="docutils literal notranslate"><span class="pre">+\x</span></code> is simply <code class="docutils literal notranslate"><span class="pre">x[0]</span></code>, <code class="docutils literal notranslate"><span class="pre">x[0]+x[1]</span></code>, <code class="docutils literal notranslate"><span class="pre">x[0]+x[1]+x[2]</span></code>,…etc. The good news is that in k, a scan is as efficient as a reduce, which isn’t the case in APL.</p>
+<p>As with reductions, we can also seed scans in the same way by providing the initial value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>99+\!10   / seeded scan
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99 100 102 105 109 114 120 127 135 144
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="each-prior-f-xf">
+<h2>Each-prior <code class="docutils literal notranslate"><span class="pre">F':</span></code>, <code class="docutils literal notranslate"><span class="pre">xF':</span></code><a class="headerlink" href="#each-prior-f-xf" title="Permalink to this headline">¶</a></h2>
+<p>If you think back to <em>each</em> above, it applies a monad to every element in turn. <em>Each-prior</em> applies a dyad to every neighbour pairing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>+&#39;:1 2 3 4 5 6 7 8 9     / pair-wise sums
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 3 5 7 9 11 13 15 17
+</pre></div>
+</div>
+</div>
+</div>
+<p>The eagle-eyed reader may have spotted that the first element is 1, and that the number of elements in the result is the same as the original argument. Perhaps you would have guessed that it should have started with 3 and have one fewer elements, like the number of panels required for <em>n</em> fence-posts? You’re not alone.</p>
+<p>The first element is assumed to be the dyad applied to the prototypal element and the first element; a sort of initial “overhang”. In other words, in the example above, the sequence is</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>(0+1;1+2;2+3;3+4;4+5;5+6;6+7;7+8;8+9)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 3 5 7 9 11 13 15 17
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each-prior is an example of a <em>windowed reduction</em>. In other words, in this case, we reduce each pairing to an atom.</p>
+<p>As with <em>reduce</em> and <em>scan</em>, <em>each-prior</em> can also be given a seed value, which would be taken as the left argument of the first application (in place of the prototypal element):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>9+&#39;:1 2 3 4 5 6 7 8 9
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10 3 5 7 9 11 13 15 17
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="each-left-each-right-f-f">
+<h2>Each-left, each-right <code class="docutils literal notranslate"><span class="pre">F\:</span></code>, <code class="docutils literal notranslate"><span class="pre">F/:</span></code><a class="headerlink" href="#each-left-each-right-f-f" title="Permalink to this headline">¶</a></h2>
+<p>K lacks APL’s elegant <em>rank</em> operator, <code class="docutils literal notranslate"><span class="pre">⍤</span></code>, but between them, <em>each-left</em> and <em>each_right</em> can do many of the same things. If we have a vector to the left and a vector to the right, <em>each-left</em> allows us to call a dyad with each of the elements to the left, with the whole of the right vector,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>1 2 3 4+\:9 9
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10 10
+ 11 11
+ 12 12
+ 13 13)
+</pre></div>
+</div>
+</div>
+</div>
+<p>In other words, <em>each</em> of the elements to the left, plus the <em>whole</em> of the right, like</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>(1+9 9;2+9 9;3+9 9;4+9 9)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10 10
+ 11 11
+ 12 12
+ 13 13)
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Each-right</em> does the same thing, but in the opposite direction. With <em>each-left</em> and <em>each-right</em> you can approximate APL’s outer product operator, for example, building a “times table” to teach multiplication:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>(!11)*\:!11
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0 0 0 0 0 0 0 0 0 0 0
+ 0 1 2 3 4 5 6 7 8 9 10
+ 0 2 4 6 8 10 12 14 16 18 20
+ 0 3 6 9 12 15 18 21 24 27 30
+ 0 4 8 12 16 20 24 28 32 36 40
+ 0 5 10 15 20 25 30 35 40 45 50
+ 0 6 12 18 24 30 36 42 48 54 60
+ 0 7 14 21 28 35 42 49 56 63 70
+ 0 8 16 24 32 40 48 56 64 72 80
+ 0 9 18 27 36 45 54 63 72 81 90
+ 0 10 20 30 40 50 60 70 80 90 100)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sometimes you even see <em>each-left-each-right</em> <code class="docutils literal notranslate"><span class="pre">/:\:</span></code>. Here’s a partial example from <a class="reference external" href="https://adventofcode.com/2021/day/2">Advent of Code, 2021, day 2</a>. Let’s say we have a vector that lists a sequence of pairs representing direction and magnitude: [<a class="reference external" href="(https://ngn.bitbucket.io/k#eJxLsdLQUErLLypPLEpRsjbVtNZQSskvz4My4RIWIF5pgZK1MUKFBYoKI01NrlwUw6DKQNo06/StYqxSoq0NYjW1wAzDWK5iK2199Vyu4miDWK3iaMNY3eJoo1gAm+ko9w==)">try it</a>]</p>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>:d:((&quot;forward&quot;;5);(&quot;down&quot;;5);(&quot;forward&quot;;8);(&quot;up&quot;;3);(&quot;down&quot;;8);(&quot;forward&quot;;2))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((&quot;forward&quot;;5)
+ (&quot;down&quot;;5)
+ (&quot;forward&quot;;8)
+ (&quot;up&quot;;3)
+ (&quot;down&quot;;8)
+ (&quot;forward&quot;;2))
+</pre></div>
+</div>
+</div>
+</div>
+<p>We want to convert this to a matrix of magnitudes for each step, with separate rows for the three directions. One way we could do this is:</p>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>:m:((&quot;forward&quot;;&quot;down&quot;;&quot;up&quot;)~/:\:d[;0])*\:d[;1]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5 0 8 0 0 2
+ 0 5 0 0 8 0
+ 0 0 0 3 0 0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The match-each-right-each-left <code class="docutils literal notranslate"><span class="pre">~/:\:</span></code> matches each element to the left with each element to the right, as if we’d done the following:</p>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>&quot;forward&quot;~/:d[;0]
+&quot;down&quot;~/:d[;0]
+&quot;up&quot;~/:d[;0]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 0 1 0 0 1
+0 1 0 0 1 0
+0 0 0 1 0 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the matrix <code class="docutils literal notranslate"><span class="pre">m</span></code> above, each column represents a move with a magnitude, where the rows are <code class="docutils literal notranslate"><span class="pre">forward</span></code>, <code class="docutils literal notranslate"><span class="pre">down</span></code> and <code class="docutils literal notranslate"><span class="pre">up</span></code> respectively. The problem now asks us to answer the following:</p>
+<blockquote>
+<div><p>Calculate the horizontal position and depth you would have after following the planned course. What do you get if you multiply your final horizontal position by your final depth?</p>
+</div></blockquote>
+<p>We can translate that readily to k:</p>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>s:+/&#39;m          / sum each row
+s[0]*s[1]-s[2]  / forward sum * (down sum - up sum)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>150
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="for-i-f-i-f">
+<h2>For <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">f/</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">f\</span></code><a class="headerlink" href="#for-i-f-i-f" title="Permalink to this headline">¶</a></h2>
+<p>K has a rich set of functional looping constructs. Perhaps the simplest one is the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop (APL’s <em>power</em> <code class="docutils literal notranslate"><span class="pre">⍣i</span></code>), which calls a monad repeatedly on its own result a set number of times.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>5 {x*2}/1   / starting with 1, multiply by 2, 5 times: 2*2*2*2*2*1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32
+</pre></div>
+</div>
+</div>
+</div>
+<p>In naive Python, perhaps you’d written that as</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>Flip the slash to a backslash, and (as you may have suspected already) you’ll get the full sequence of intermediate results:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>5 {x*2}\1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 2 4 8 16 32
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="while-f-f-f-f">
+<h2>While <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">f/</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">f\</span></code><a class="headerlink" href="#while-f-f-f-f" title="Permalink to this headline">¶</a></h2>
+<p>Pass a predicate verb to the left of <code class="docutils literal notranslate"><span class="pre">f/</span></code> and we instead have a <em>while</em> loop. It will repeatedly call the monad on its own result as long as the left argument verb, called on the result, returns non-zero.</p>
+<p>In Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">whileg</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">g</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>{x&lt;10}{x*2}/1  / starting with 1, multiply by 2 while the value &lt; 10
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <em>while</em> adverb will always execute its monad at least once:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>{x&lt;0}{x*2}/1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>As with <em>for</em> above, we can get the intermediate values by flipping the slash:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>{x&lt;10}{x*2}\1 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 2 4 8 16
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="converge-f-f">
+<h2>Converge <code class="docutils literal notranslate"><span class="pre">f/</span></code>, <code class="docutils literal notranslate"><span class="pre">f\</span></code><a class="headerlink" href="#converge-f-f" title="Permalink to this headline">¶</a></h2>
+<p>If we supply no left argument to <code class="docutils literal notranslate"><span class="pre">f/</span></code> we end up with <em>converge</em>. This repeatedly applies the monad f to its result until the result is either the starting value, or the previous value. Note that it’s not a good idea to call <em>converge</em> with a function that does not converge.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>{1+1.0%x}/1       / the golden mean
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.618033988749895
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Converge</em>, with a backslash, returns the intermediates, too:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>10#{1+1.0%x}\1    / first 10 values only              
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1
+ 2.0
+ 1.5
+ 1.6666666666666665
+ 1.6
+ 1.625
+ 1.6153846153846154
+ 1.619047619047619
+ 1.6176470588235294
+ 1.6181818181818182)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="window-i-x">
+<h2>Window <code class="docutils literal notranslate"><span class="pre">i':x</span></code><a class="headerlink" href="#window-i-x" title="Permalink to this headline">¶</a></h2>
+<p><em>Window</em> produces a sliding window of the specified size, returning a vector of shape <code class="docutils literal notranslate"><span class="pre">(1-i-#x;i)</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>3&#39;:!10
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0 1 2
+ 1 2 3
+ 2 3 4
+ 3 4 5
+ 4 5 6
+ 5 6 7
+ 6 7 8
+ 7 8 9)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This can be handy for doing windowed reductions. The sliding sum length 3 from 0-19:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>+/&#39;3&#39;:!10
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 6 9 12 15 18 21 24
+</pre></div>
+</div>
+</div>
+</div>
+<p>What happens if you use a length 0 window? Well, the result still follows the rule that the shape is <code class="docutils literal notranslate"><span class="pre">(1-i-#X;i)</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>0&#39;:1 2 3 4
+0&#39;:&quot;hello&quot;
+0&#39;:(1 2 3;4 5 6;7 8 9)
+0&#39;:2 3 5#5
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(!0
+ !0
+ !0
+ !0
+ !0)
+(&quot;&quot;
+ &quot;&quot;
+ &quot;&quot;
+ &quot;&quot;
+ &quot;&quot;
+ &quot;&quot;)
+(()
+ ()
+ ()
+ ())
+(()
+ ()
+ ())
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="stencil-i-f">
+<h2>Stencil <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">f':</span></code><a class="headerlink" href="#stencil-i-f" title="Permalink to this headline">¶</a></h2>
+<p><em>Stencil</em> is similar to <em>window</em>, but it applies the monad to the window. We did a sliding windowed sum above as</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>+/&#39;3&#39;:!10   / window, then sum
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 6 9 12 15 18 21 24
+</pre></div>
+</div>
+</div>
+</div>
+<p>This can be more efficiently expressed as a <em>stenciled sum</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>3+/&#39;:!10    / stencil sum
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 6 9 12 15 18 21 24
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <em>stencil</em> version avoids having to first generate the windows, and then applying the monad to each of them.</p>
+</div>
+<div class="section" id="bin-search-x">
+<h2>Bin search <code class="docutils literal notranslate"><span class="pre">X'</span></code><a class="headerlink" href="#bin-search-x" title="Permalink to this headline">¶</a></h2>
+<p><em>Bin search</em> is a binning algorithm – given a set of ranged bins, it picks the bin corresponding to the arguments. This is what an APLer or NumPyer would call <em>interval index</em>. Here’s how it works:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>1 3 5 7 9&#39;8 9 0  / bin 8, 9 and 0 over the intervals 1 3 5 7 9
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 4 -1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Consider the gaps between the elements to the left. The first interval is then [1, 3), the second is [3, 5), the third is [5, 7) etc. An element belongs to the bin where it is greater than or equal to the lower end, and less than the upper end.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>1 3 5 7 9&#39;5      / elements on on boundary goes in the higher bin
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Elements smaller than the first bin goes in the -1 bin, which is assumed to cover every number lower than the first bin. Similarly, elements greater than the last bin will end up with a bin number equal to the number of elements (note: not the number of <em>bins</em>) to the left:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>3 5 7 9&#39;0 100
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>It works for other types, too:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>&quot;AEIOU&quot;&#39;&quot;HELLO WORLD&quot;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 1 2 2 3 -1 4 3 3 2 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>In other words, “H” comes on or after “E” but not after “I”, “E” is on or after “E” etc.</p>
+<p>Typical use cases for <em>bin search</em> involves various kinds of classification. For example, in the UK, alcoholic beverages are <a class="reference external" href="https://www.gov.uk/government/publications/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances">taxed</a> based on their <em>alcohol by volume</em> (abv) percentage. Let’s consider cider and perry:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Class or description</p></th>
+<th class="text-align:right head"><p>Tax type code</p></th>
+<th class="text-align:right head"><p>Rate of excise duty/hl</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>abv does not exceed 1.2%</p></td>
+<td class="text-align:right"><p>431</p></td>
+<td class="text-align:right"><p>£0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>abv exceeding 1.2% but less than 6.9%</p></td>
+<td class="text-align:right"><p>481</p></td>
+<td class="text-align:right"><p>£40.38</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>abv at least 6.9% but not exceeding 7.5%</p></td>
+<td class="text-align:right"><p>487</p></td>
+<td class="text-align:right"><p>£50.71</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>abv at least 7.5% but not exceeding 8.5%</p></td>
+<td class="text-align:right"><p>483</p></td>
+<td class="text-align:right"><p>£61.04</p></td>
+</tr>
+</tbody>
+</table>
+<p>Given the following ciders with the associated abv, what are their respective tax code and tax rate per hecto-litre? [<a class="reference external" href="https://ngn.bitbucket.io/k#eJwlT81qwzAYu/spRA5rS8HYy++cW3vbGIXtCZzkI/2omwTb7fPPXg8CIQkJjTyRDwb74mvdNusH8jN+E7k5Xmb8rIGKvjg93D3FcPE882Jdks6ew8YL4pXwaccbxSRe3ITv9RFxvpL3TAFvOL1YcRB2eBq0UqGSNTpZQkklxnUiU5UaVZfRJjTC20gm5ZQsO9RKthqNlqoSju8cg9HyHY38SGW5qBYDL0YfX+YuzYjjfvw/1ucmJLvPO5kcxB/6fkgU">try it</a>]</p>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>ciders: (&quot;Kopparberg Sparkling Rose&quot;;&quot;Bulmers Original&quot;;&quot;Crispin the Jacket&quot;;&quot;Old Mout Cherries &amp; Berries&quot;)
+abv: 7.0 4.5 8.3 0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s encode the table above into a set of vectors first:</p>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>code:431 481 487 486
+rate:0 40.38 50.71 61.04
+limits:1.2 6.9 7.5 8.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s find the bins from the limits, and add one to capture the -1 bin appropriately:</p>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>:bin:1+limits&#39;abv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 1 3 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can lay out a nice table:</p>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>+(ciders;rate bin;code bin)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((&quot;Kopparberg Sparkling Rose&quot;;50.71;487)
+ (&quot;Bulmers Original&quot;;40.38;481)
+ (&quot;Crispin the Jacket&quot;;61.04;486)
+ (&quot;Old Mout Cherries &amp; Berries&quot;;0.0;431))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>\h
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>: SET      RETURN    &#39;  each|slide|bin
++ add      flip      /  fold|join |dec
+- subtract negate    \  scan|split|enc
+* multiply first     &#39;: eachprior
+% divide   sqrt      /: eachright
+! mod|dict enum|key  \: eachleft
+&amp; min|and  where
+| max|or   reverse
+&lt; less     ascend    0: lines i/o
+&gt; more     descend   1: bytes i/o
+= equal    group
+~ match    not
+, concat   enlist
+^ without  null
+# reshape  length
+_ drop|cut floor
+$ cast     string    $[c;t;f] COND
+? find|rnd uniq
+@ apply(1) type      @[x;i;[f;]y] amend
+. apply(n) eval      .[x;i;[f;]y] drill
+grammar:  E:E;e|e e:nve|te| t:n|v v:tA|V n:t[E]|(E)|{E}|N
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>\
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\   help               \\         exit
+\a  license(AGPLv3)    \l file.k  load
+\0  types              \t:n expr  time(elapsed milliseconds after n runs)
+\+  verbs              \v         variables
+\:  I/O verbs          \f         functions
+\&#39;  adverbs            \cd path   change directory
+\`  symbols            \other     command(through /bin/sh)
+\h  summary
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>\:
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I/O verbs
+  0:x read  lines
+x 0:y write lines
+  1:x read  bytes
+x 1:y write bytes
+   &lt;s open          fd:&lt;`&quot;file.txt&quot;
+   &gt;i close         &gt;fd
+
+x can be a file descriptor (int) or symbol or string such as
+ &quot;file.txt&quot;
+ &quot;/path/to/file&quot;
+ &quot;host:port&quot;
+ &quot;:port&quot;         /host defaults to 127.0.0.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>\`
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Special symbols:
+    `@x serialize    ` 7 8 9 -&gt; 0x020300000000000000070809
+    `?C deserialize  `?0x020300000000000000070809 -&gt; 7 8 9
+   `j?C parse json   `j?&quot;{\&quot;a\&quot;:1,\&quot;b\&quot;:[true,\&quot;c\&quot;]}&quot; -&gt; `a`b!(1.0;(1;,&quot;c&quot;))
+   `k@x pretty-print `k(&quot;ab&quot;;2 3) -&gt; &quot;(\&quot;ab\&quot;;2 3)&quot;
+   `p@C parse k
+ `hex@C hexadecimal  `hex&quot;ab&quot; -&gt; &quot;6162&quot;
+   `x@x fork-exec    `x((&quot;/bin/wc&quot;;&quot;-l&quot;);&quot;a\nbc\nd\n&quot;) -&gt; &quot;3\n&quot;
+   `t[] current time (microseconds)
+`argv[] list of cmd line args
+ `env[] dict of env variables
+`prng[] `prng@I get/set pseudo-random number generator internal state
+                     s:`prng[];r:9?0;`prng s;r~9?0 -&gt; 1
+        `prng@0 use current time to set state
+ `err@C throw error
+Special symbols available only in an interpreter built with &quot;make k-libc&quot;:
+ `sin@N trigonometry `sin 12.34 -&gt; -0.22444212919135995
+ `exp@N exponential  `exp 1 -&gt; 2.7182818284590455
+  `ln@N logarithm    `ln 2 -&gt; 0.6931471805599453
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>\&#39;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adverbs:   &#39; / \ &#39;: /: \:
+   f&#39; each1     #&#39;(&quot;abc&quot;;3 4 5 6) -&gt; 3 4
+ x F&#39; each2     2 3#&#39;&quot;ab&quot; -&gt; (&quot;aa&quot;;&quot;bbb&quot;)
+   X&#39; binsearch 1 3 5 7 9&#39;8 9 0 -&gt; 3 4 -1
+   F/ fold      +/1 2 3 -&gt; 6
+   F\ scan      +\1 2 3 -&gt; 1 3 6
+ x F/ seeded /  10+/1 2 3 -&gt; 16
+ x F\ seeded \  10+\1 2 3 -&gt; 11 13 16
+ i f/ n-do      5(2*)/1 -&gt; 32
+ i f\ n-dos     5(2*)\1 -&gt; 1 2 4 8 16 32
+ f f/ while     (1&lt;){$[2!x;1+3*x;-2!x]}/3 -&gt; 1
+ f f\ whiles    (1&lt;){$[2!x;1+3*x;-2!x]}\3 -&gt; 3 10 5 16 8 4 2 1
+   f/ converge  {1+1.0%x}/1 -&gt; 1.618033988749895
+   f\ converges (-2!)\100 -&gt; 100 50 25 12 6 3 1 0
+   C/ join      &quot;ra&quot;/(&quot;ab&quot;;&quot;cadab&quot;;&quot;&quot;) -&gt; &quot;abracadabra&quot;
+   C\ split     &quot;ra&quot;\&quot;abracadabra&quot; -&gt; (&quot;ab&quot;;&quot;cadab&quot;;&quot;&quot;)
+   I/ decode    24 60 60/1 2 3 -&gt; 3723   2/1 1 0 1 -&gt; 13
+   I\ encode    24 60 60\3723 -&gt; 1 2 3   2\13 -&gt; 1 1 0 1
+  i&#39;: window    3&#39;&quot;abcdef&quot; -&gt; (&quot;abc&quot;;&quot;bcd&quot;;&quot;cde&quot;;&quot;def&quot;)
+i f&#39;: stencil   3{x,&quot;.&quot;}&#39;:&quot;abcde&quot; -&gt; (&quot;abc.&quot;;&quot;bcd.&quot;;&quot;cde.&quot;)
+  F&#39;: eachprior -&#39;:12 13 11 17 14 -&gt; 12 1 -2 6 -3
+x F&#39;: seeded &#39;: 10-&#39;:12 13 11 17 14 -&gt; 2 1 -2 6 -3
+x F/: eachright 1 2*/:3 4 -&gt; (3 6;4 8)
+x F\: eachleft  1 2*\:3 4 -&gt; (3 4;6 8)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>\+
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Verbs:    : + - * % ! &amp; | &lt; &gt; = ~ , ^ # _ $ ? @ . 0: 1:
+notation: [c]har [i]nt [n]umber(int|float) [s]ymbol [a]tom [d]ict
+          [f]unc(monad) [F]unc(dyad) [xyz]any
+special:  var:y     set    a:1;a -&gt; 1
+          (v;..):y  unpack (b;(c;d)):(2 3;4 5);c -&gt; 4
+          :x        return {:x+1;2}[3] -&gt; 4
+          $[x;y;..] cond   $[0;`a;&quot;\0&quot;;`b;`;`c;();`d;`e] -&gt; `e
+          o[..]     recur  {$[x&lt;2;x;+/o&#39;x-1 2]}9 -&gt; 34
+          [..]      progn  [0;1;2;3] -&gt; 3
+
+::  self      ::12 -&gt; 12
+ :  right     1 :2 -&gt; 2   &quot;abc&quot;:&#39;&quot;d&quot; -&gt; &quot;ddd&quot;
+ +x flip      +(&quot;ab&quot;;&quot;cd&quot;) -&gt; (&quot;ac&quot;;&quot;bd&quot;)
+N+N add       1 2+3 -&gt; 4 5
+ -N negate    - 1 2 -&gt; -1 -2
+N-N subtract  1-2 3 -&gt; -1 -2
+ *x first     *`a`b -&gt; `a   *(0 1;&quot;cd&quot;) -&gt; 0 1
+N*N multiply  1 2*3 4 -&gt; 3 8
+ %N sqrt      %25 -&gt; 5.0   %-1 -&gt; 0n
+N%N divide    4 3%2 -&gt; 2 1   4 3%2.0 -&gt; 2.0 1.5
+ !i enum      !3 -&gt; 0 1 2   !-3 -&gt; -3 -2 -1
+ !I odometer  !2 3 -&gt; (0 0 0 1 1 1;0 1 2 0 1 2)
+ !d keys      !`a`b!0 1 -&gt; `a`b
+ !S ns keys   a.b.c:1;a.b.d:2;!`a`b -&gt; ``c`d
+x!y dict      `a`b!1 2 -&gt; `a`b!1 2
+i!I div       -10!1234 567 -&gt; 123 56
+i!I mod       10!1234 567 -&gt; 4 7
+ &amp;I where     &amp;3 -&gt; 0 0 0   &amp;1 0 1 4 2 -&gt; 0 2 3 3 3 3 4 4
+ &amp;x deepwhere &amp;(0 1 0;1 0 0;1 1 1) -&gt; (0 1 2 2 2;1 0 0 1 2)
+N&amp;N min/and   2&amp;-1 3 -&gt; -1 2   0 0 1 1&amp;0 1 0 1 -&gt; 0 0 0 1
+ |x reverse   |&quot;abc&quot; -&gt; &quot;cba&quot;   |12 -&gt; 12
+N|N max/or    2|-1 3 -&gt; 2 3   0 0 1 1|0 1 0 1 -&gt; 0 1 1 1
+ &lt;X ascend    &lt;&quot;abacus&quot; -&gt; 0 2 1 3 5 4
+ &gt;X descend   &gt;&quot;abacus&quot; -&gt; 4 5 3 1 0 2
+ &lt;s open      fd:&lt;`&quot;/path/to/file.txt&quot;
+ &gt;i close     &gt;fd
+N&lt;N less      0 2&lt;1 -&gt; 1 0
+N&gt;N more      0 1&gt;0 2 -&gt; 0 0
+ =X group     =&quot;abracadabra&quot; -&gt; &quot;abrcd&quot;!(0 3 5 7 10;1 8;2 9;,4;,6)
+ =i unitmat   =3 -&gt; (1 0 0;0 1 0;0 0 1)
+N=N equal     0 1 2=0 1 3 -&gt; 1 1 0
+ ~x not       ~(0 2;``a;&quot;a \0&quot;;::;{}) -&gt; (1 0;1 0;0 0 1;1;0)
+x~y match     2 3~2 3 -&gt; 1   &quot;4&quot;~4 -&gt; 0   0~0.0 -&gt; 0
+ ,x enlist    ,0 -&gt; ,0   ,0 1 -&gt; ,0 1   ,`a!1 -&gt; +(,`a)!,,1
+x,y concat    0,1 2 -&gt; 0 1 2  &quot;a&quot;,1 -&gt; (&quot;a&quot;;1)
+ ^x null      ^(&quot; a&quot;;0 1 0N;``a;0.0 0n) -&gt; (1 0;0 0 1;1 0;0 1)
+a^y fill      1^0 0N 2 3 0N -&gt; 0 1 2 3 1   &quot;b&quot;^&quot; &quot; -&gt; &quot;b&quot;
+X^y without   &quot;abracadabra&quot;^&quot;bc&quot; -&gt; &quot;araadara&quot;
+ #x length    #&quot;abc&quot; -&gt; 3   #4 -&gt; 1   #`a`b`c!0 1 0 -&gt; 3
+i#y reshape   3#2 -&gt; 2 2 2
+I#y reshape   2 3#` -&gt; (```;```)
+f#y replicate (3&gt;#:&#39;)#(0;2 1 3;5 4) -&gt; (0;5 4)   {2}#&quot;ab&quot; -&gt; &quot;aabb&quot;
+x#d take      `c`d`f#`a`b`c`d!1 2 3 4 -&gt; `c`d`f!3 4 0N
+ _n floor     _12.34 -12.34 -&gt; 12 -13
+ _c lowercase _&quot;Ab&quot; -&gt; &quot;ab&quot;
+i_Y drop      2_&quot;abcde&quot; -&gt; &quot;cde&quot;   `b_`a`b`c!0 1 2 -&gt; `a`c!0 2
+I_Y cut       2 4 4_&quot;abcde&quot; -&gt; (&quot;cd&quot;;&quot;&quot;;,&quot;e&quot;)
+f_Y weed out  (3&gt;#:&#39;)_(0;2 1 3;5 4) -&gt; ,2 1 3
+X_i delete    &quot;abcde&quot;_2 -&gt; &quot;abde&quot;
+ $x string    $(12;&quot;ab&quot;;`cd;+) -&gt; (&quot;12&quot;;(,&quot;a&quot;;,&quot;b&quot;);&quot;cd&quot;;,&quot;+&quot;)
+i$C pad       5$&quot;abc&quot; -&gt; &quot;abc  &quot;   -3$&quot;a&quot; -&gt; &quot;  a&quot;
+s$y cast      `c$97 -&gt; &quot;a&quot;   `i$-1.2 -&gt; -1   `$&quot;a&quot; -&gt; `a
+s$y int       `I$&quot;-12&quot; -&gt; -12
+ ?x uniq      ?&quot;abacus&quot; -&gt; &quot;abcus&quot;
+X?y find      &quot;abcde&quot;?&quot;bfe&quot; -&gt; 1 0N 4
+i?x roll      3?1000 -&gt; 11 398 293   1?0 -&gt; ,-8164324247243690787
+i?x deal      -3?1000 -&gt; 11 398 293 /guaranteed distinct
+ @x type      @1 -&gt; `b   @&quot;ab&quot; -&gt; `C   @() -&gt; `A   @(@) -&gt; `v
+x@y apply(1)  {x+1}@2 -&gt; 3   &quot;abc&quot;@1 -&gt; &quot;b&quot;   (`a`b!0 1)@`b -&gt; 1
+ .S get       a:1;.`a -&gt; 1   b.c:2;.`b`c -&gt; 2
+ .C eval      .&quot;1+2&quot; -&gt; 3
+ .d values    .`a`b!0 1 -&gt; 0 1
+x.y apply(n)  {x*y+1}. 2 3 -&gt; 8   (`a`b`c;`d`e`f). 1 0 -&gt; `d
+
+@[x;y;f]   amend  @[&quot;ABC&quot;;1;_:] -&gt; &quot;AbC&quot;   @[2 3;1;{-x}] -&gt; 2 -3
+@[x;y;F;z] amend  @[&quot;abc&quot;;1;:;&quot;x&quot;] -&gt; &quot;axc&quot;   @[2 3;0;+;4] -&gt; 6 3
+.[x;y;f]   drill  .[(&quot;AB&quot;;&quot;CD&quot;);1 0;_:] -&gt; (&quot;AB&quot;;&quot;cD&quot;)
+.[x;y;F;z] drill  .[(&quot;ab&quot;;&quot;cd&quot;);1 0;:;&quot;x&quot;] -&gt; (&quot;ab&quot;;&quot;xd&quot;)
+.[f;y;f]   try    .[+;1 2;&quot;E:&quot;,] -&gt; 3   .[+;1,`2;&quot;E:&quot;,] -&gt; &quot;E:typ&quot;
+?[x;y;z]   splice ?[&quot;abcd&quot;;1 3;&quot;xyz&quot;] -&gt; &quot;axyzd&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "ngnk"
+        },
+        kernelOptions: {
+            kernelName: "ngnk",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ngnk'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Verbs.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Built-in verbs</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Dicts.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dicts</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Stefan Kruger, Computational Array and Magic<br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a></p>
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

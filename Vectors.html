@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vectors everywhere &#8212; What about k?</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Built-in verbs" href="Verbs.html" />
+    <link rel="prev" title="Introduction" href="Introduction.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">What about k?</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Vectors everywhere
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Verbs.html">
+   Built-in verbs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Adverbs.html">
+   Adverbs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dicts.html">
+   Dicts
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Vectors.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xpqz/kbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xpqz/kbook/issues/new?title=Issue%20on%20page%20%2FVectors.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#count">
+   Count
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reshape">
+   Reshape
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexing">
+   Indexing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutation">
+   Mutation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#atomics">
+   Atomics
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="vectors-everywhere">
+<h1>Vectors everywhere<a class="headerlink" href="#vectors-everywhere" title="Permalink to this headline">¶</a></h1>
+<p>k is a vector language. In practice, what this means is that the vector is the only data structure available out of the gates. Well, it does have dicts, too, but they’re really just a pair of vectors under the hood (we’ll get to those in a bit).</p>
+<p>We can make a vector by simply listing a bunch of elements, separated by space:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>1 4 7 2 3 9 0         / a simple numeric vector
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 4 7 2 3 9 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The elements of a vector can be anything, including other vectors (at any level of nesting):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>(1 2 3;4 5 6;7 8 9)   / a nested vector - nested elements separated by semi-colon
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1 2 3
+ 4 5 6
+ 7 8 9)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also place characters and symbols in vectors,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>(&quot;Hello world&quot;; `h`e`l`l`o)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&quot;Hello world&quot;
+ `h`e`l`l`o)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Indeed, k, like APL, does not have a separate data representation for strings – they’re just vectors of characters. And, yes, we sneakily introduced another fundamental k-type there, the <em>symbol</em>. A symbol in k is denoted by a leading back-tick, like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>`sym
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`sym
+</pre></div>
+</div>
+</div>
+</div>
+<p>and, as we saw already, a vector of symbols requires no spaces:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>`a`b`c`d
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>`a`b`c`d
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can assign a vector to a variable. K uses the colon <code class="docutils literal notranslate"><span class="pre">:</span></code> to denote assignment:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>a:1 4 7 2 3 9 0
+b:&quot;some text here&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that this time we got nothing back. This is because k’s assignment does not return a value. To see the value of a variable, we simply refer to it by name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>var:23 45 56
+var
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23 45 56
+</pre></div>
+</div>
+</div>
+</div>
+<p>or we can use monadic <code class="docutils literal notranslate"><span class="pre">:</span></code>, <em>dex</em>, which is a verb that returns its right argument, like APL’s <em>right tack</em>, <code class="docutils literal notranslate"><span class="pre">⊢</span></code>. “Dexter” means “right” in Latin. We’ll use that to make variable assignments visible in output occaionally:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>:var:23 45 56    / dex the assignment for output
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23 45 56
+</pre></div>
+</div>
+</div>
+</div>
+<p>K supports scalars, too, unsurprisingly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>A scalar isn’t in fact a 1D vector with a single element, which presents us with a bit of a conundrum: if I <em>do</em> want a vector with a single element, how do I create that? For this we use a <em>monadic</em> comma, <code class="docutils literal notranslate"><span class="pre">,</span></code>, called <em>enlist</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>,5                   / a vector containing the element 5
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>,5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="count">
+<h2>Count<a class="headerlink" href="#count" title="Permalink to this headline">¶</a></h2>
+<p><em>Count</em>, monadic <code class="docutils literal notranslate"><span class="pre">#</span></code>, gives the cardinality of its argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>#3 4 5 1 23 5        / a vector containing 6 elements
+#(1 2 3;3 2 1)       / a nested vector containing 2 elements
+#,5                  / a vector containing 1 element                 
+#5                   / a single scalar
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+2
+1
+1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hold on! Didn’t you just say that a scalar <em>isn’t</em> a single-element vector? If so, why is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">=</span> <span class="pre">#5</span></code>? The <code class="docutils literal notranslate"><span class="pre">#</span></code> is <em>cardinality</em>, not shape. But it’s a fair question, one which has either a dirt simple, or a deep, complex answer.</p>
+<p>Python, for example, has a different opinion than k. Well, it would, wouldn’t it?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>    <span class="c1"># length of a vector</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>                      <span class="c1"># length of a scalar is an error</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">object of type &#39;int&#39; has no len()</span>
+</pre></div>
+</div>
+<p>APL has a <em>tally</em> primitive, too, <code class="docutils literal notranslate"><span class="pre">≢</span></code>. APL thinks like k in this regard:</p>
+<div class="highlight-apl notranslate"><div class="highlight"><pre><span></span> <span class="o">≢,</span><span class="m">5</span>     <span class="c1">⍝ tally a vector with one element</span>
+ 
+<span class="m">1</span>
+ 
+ <span class="o">≢</span><span class="m">5</span>      <span class="c1">⍝ tally a scalar</span>
+ 
+<span class="m">1</span>
+</pre></div>
+</div>
+<p>The dirt simple explanation is that, in k, monadic <code class="docutils literal notranslate"><span class="pre">#</span></code> simply returns the “number of things to the right”, which for a scalar is 1. This should be a sufficient explanation for practical programming purposes. The book <a class="reference external" href="https://code.kx.com/q4m3/3_Lists/#312-count">Q for Mortals</a>, for example, leaves it at that:</p>
+<blockquote>
+<div><p>Observe that the count of an atom is 1 even though an atom is not a list.</p>
+</div></blockquote>
+<p>If you’re OK with that for now, feel free to skip the next bit, with sanity intact.</p>
+<p>For the more complex explanation, we need to consider the fundamental nature of vectors and scalars in k. Adám Brudzewsky <a class="reference external" href="https://chat.stackexchange.com/transcript/message/46209916#46209916">explained it in APL-terms</a> in the chat room <a class="reference external" href="https://apl.chat">APL Orchard</a>:</p>
+<blockquote>
+<div><p>A set of coordinates is simply a list of positions along each of the axes of the array, in the canonical order of axes.</p>
+<ul class="simple">
+<li><p>In a 3D array, we need exactly 3 coordinates, e.g. (3,1,4) to address an element.</p></li>
+<li><p>In 2D array (a matrix/table), we need exactly 2 coordinates.</p></li>
+<li><p>In a 1D array (a vector/list), we need exactly 1 coordinate.</p></li>
+<li><p>In a 0D array (a scalar), we need exactly 0 coordinates.</p></li>
+</ul>
+<p>So the number 5 is just a 0-dimensional array where the sole element has the coordinates [] (in JSON).</p>
+</div></blockquote>
+<p>That explanation holds true for k, too: a scalar can be viewed as a 0D vector of one element which is accessed with an empty coordinate vector.</p>
+<p>&#64;ngn <a class="reference external" href="https://chat.stackexchange.com/transcript/message/59703183#59703183">opined</a>:</p>
+<blockquote>
+<div><p>&#64;xpqz the fact that a scalar has empty shape and exactly 1 item is not controversial. it’s just that <code class="docutils literal notranslate"><span class="pre">1=≢scalar</span></code> doesn’t sound as convincing to some people.</p>
+</div></blockquote>
+<p>Don’t worry too much if that <em>does</em> feel controversial.</p>
+<p>But the question remains - how <em>do</em> you distinguish between a scalar and a 1D vector with 1 element? They <em>are</em> different. There are a couple of ways in k to check if something is a scalar, for example by matching with the first element. We can find the first element of something with monadic <code class="docutils literal notranslate"><span class="pre">*</span></code>, which you by now should expect works for both scalars and vectors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>*5             / first element of scalar 5
+*1 2 3 4 5     / first element of vector 1 2 3 4 5
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+1
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Match</em>, dyadic <code class="docutils literal notranslate"><span class="pre">~</span></code>, is basically “deep equals” – true if both the structure and contents of the two things being compared are the same.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>scalar:5
+vector:1 2 3 4 5
+scalar~*scalar
+vector~*vector
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reshape">
+<h2>Reshape<a class="headerlink" href="#reshape" title="Permalink to this headline">¶</a></h2>
+<p>Dyadic <code class="docutils literal notranslate"><span class="pre">#</span></code> is <em>reshape</em>, cribbed wholesale from APL’s dyadic <code class="docutils literal notranslate"><span class="pre">⍴</span></code>. It lets you create nested vectors of arbitrary depth:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>3 5#3 1 2 4 5 8 6 9 8 4 5 2 3 4     / a 3x5 matrix
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3 1 2 4 5
+ 8 6 9 8 4
+ 5 2 3 4 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The left argument lists the length of each axis; in our case, rows and columns. K constructs this structure for us, and uses the elements to the right, in order, to fill each row in turn. If we haven’t given the perfect count of elements to match the axis specification, we’ll either start from the beginning again, or finish early:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>3 5#1 2 3           / too few elements; repeat
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1 2 3 1 2
+ 3 1 2 3 1
+ 2 3 1 2 3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>3 3#1 2 3 4 5 6 7 8 9 10 11 12 / too many, truncate
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1 2 3
+ 4 5 6
+ 7 8 9)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Axes are numbered from the left. If we want a <em>cuboid</em>, that is something with a z-axis, depth becomes the first axis:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>2 3 5#!30
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((0 1 2 3 4;5 6 7 8 9;10 11 12 13 14)
+ (15 16 17 18 19;20 21 22 23 24;25 26 27 28 29))
+</pre></div>
+</div>
+</div>
+</div>
+<p>So now we have two layers, each forming a 3x5 matrix.</p>
+<p>A supremely useful aspect of <code class="docutils literal notranslate"><span class="pre">#</span></code> is that you can set axes to “null” (<code class="docutils literal notranslate"><span class="pre">0N</span></code>) and it will be taken to mean “to the max”. An example might help: let’s say that you have a simple vector that you want to “fold” pairwise to form a 2-column table. One way you could do this is to divide its length by 2 to get the number of rows, and then reshape. It certainly works:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>v:2 5 4 2 6 5 3 7 5 3 7 5
+rows:-2!#v                   / -i! is div: integer division
+(rows;2)#v
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2 5
+ 4 2
+ 6 5
+ 3 7
+ 5 3
+ 7 5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>…but really–that’s beyond fugly. This is quite a common thing to do, so we can instead just state that we want the first axis to contain as many items as the data allow, whilst keeping the length of each row to 2:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>v:2 5 4 2 6 5 3 7 5 3 7 5
+0N 2#v
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2 5
+ 4 2
+ 6 5
+ 3 7
+ 5 3
+ 7 5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a feature I wish APL would steal.</p>
+</div>
+<div class="section" id="indexing">
+<h2>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">¶</a></h2>
+<p>K has several ways in which to index into things (although not as many as APL, thankfully), but the key idea is that indexing and functional application are syntactically identical. Or you can flip it to say that k has several ways of calling a function, and indexing is functional in k. We’ve already seen how we can call functions – we simply list the arguments as a vector. In terms of indexing, the following expressions do the same thing: select row 0, row 1, row 0, row 1 from the matrix called <code class="docutils literal notranslate"><span class="pre">m</span></code>: [<a class="reference external" href="https://ngn.bitbucket.io/k#eJyzyrUyVjBVVjQ05eLKVTBQMARjNKCvkJmXklqRmZeuUJ5ZkqGQqFCWmlySX6RQnJoDZBQr5OcplGSkKuSkJqaAFCVWZBbrAEWKUlMVyhMri4FGO0CNBjKjocxYAKlKIUw=">try it</a>]</p>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>:m:3 5#!15          / an example matrix
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0 1 2 3 4
+ 5 6 7 8 9
+ 10 11 12 13 14)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>m 0 1 0 1           / index by &#39;raw&#39; vector
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0 1 2 3 4
+ 5 6 7 8 9
+ 0 1 2 3 4
+ 5 6 7 8 9)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>m@0 1 0 1           / index @ single argument vector
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0 1 2 3 4
+ 5 6 7 8 9
+ 0 1 2 3 4
+ 5 6 7 8 9)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>m[0 1 0 1]          / bracket index
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0 1 2 3 4
+ 5 6 7 8 9
+ 0 1 2 3 4
+ 5 6 7 8 9)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">m</span></code> had been a verb instead of a vector, the effect would have been to call the verb <code class="docutils literal notranslate"><span class="pre">m</span></code> with the argument vector <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">1</span> <span class="pre">0</span> <span class="pre">1</span></code>.</p>
+<p>But what if we want to index ‘at depth’ in our vector, say picking out an individual element? Well, we have a few options. As indexing can be seen as functional application, we could select the <code class="docutils literal notranslate"><span class="pre">11</span></code> at row 2, col 1 by</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>m:3 5#!15
+m[2][1]         / first select row 2, then select element 1 from that
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, indexing at depth is a pretty common thing to want to do, so there is a convenient short-hand for this, also borrowed from function application:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>m:3 5#!15
+m[2;1]          / index at depth
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the semi-colon-separated expression inside the square brackets is <em>not</em> a vector, it’s a function application with <em>two</em> arguments. It’s worth taking a minute to internalise this difference:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>m:3 5#!15
+m[2 1]          / function call with the single argument vector 2 1: select row 2 and row 1
+m[2;1]          / function call with two arguments, 2 and 1: select element at row 2, col 1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10 11 12 13 14
+ 5 6 7 8 9)
+11
+</pre></div>
+</div>
+</div>
+</div>
+<p>It might help comparing with Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>  <span class="c1"># call function m with a single argument, the list [2, 1]</span>
+<span class="n">m</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>    <span class="c1"># call function m with two arguments, 2 and 1</span>
+</pre></div>
+</div>
+<p>Indexing at depth is also a convenient way to <em>slice</em> arrays. For example, we can pick a particular layer from a multi-dimensional vector:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>c:2 3 5#!30
+c[1;;]                / layer 1, all rows, all columns
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(15 16 17 18 19
+ 20 21 22 23 24
+ 25 26 27 28 29)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The bracket indexing expression lists the axes in order, separated by semi-colon. Omitting an axis means “all”. It follows that we can drill down to any depth. If we want a single element we need to give a full specification:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>c:2 3 5#!30
+c[1;1;1]                  / 21
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we wanted to pick column 3 from both layers we’d say</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>c:2 3 5#!30
+c[;;3]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3 8 13
+ 18 23 28)
+</pre></div>
+</div>
+</div>
+</div>
+<p>An additional quirk that might not be obvious: if we’re indexing with a vector, it can be of an arbitrary shape. The shape of the argument vector dictates the shape of the result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>m:3 3#!9
+m[(2 2;1 1)]              / note: this is NOT indexing at depth!
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((6 7 8;6 7 8)
+ (3 4 5;3 4 5))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mutation">
+<h2>Mutation<a class="headerlink" href="#mutation" title="Permalink to this headline">¶</a></h2>
+<p>We can modify values in existing vectors in a couple of ways in k. We’ll get to the funkier ones (amend and dmend) later on, but assignment via bracket indexing should feel familiar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>v:1 5 3 2 8 7 0
+v[4]: -2                  / change element as pos 4 to -2
+v
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 5 3 2 -2 7 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we saw earlier, we can bracket index with vectors, and this idea extends to assignment, too:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>v:1 5 3 2 8 7 0
+v[0 6 4]: -2              / change elements as pos 0 6 and 4 to -2
+v
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2 5 3 2 -2 7 -2
+</pre></div>
+</div>
+</div>
+</div>
+<p>For nested vectors, we need to use indexing at depth:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>m:2 3 5#!30
+m[1;1;1]: -2              / change element at layer 1, row 1, col 1 to -2
+m
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((0 1 2 3 4;5 6 7 8 9;10 11 12 13 14)
+ (15 16 17 18 19;20 -2 22 23 24;25 26 27 28 29))
+</pre></div>
+</div>
+</div>
+</div>
+<p>You cannot, however, use multiple bracket pairs to set values at depth:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>m:2 3 5#!30
+m[1][1][1]: -2            / NB: error!
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;compile
+m[1][1][1]: -2            / NB: error!
+          ^
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is because the intermediate vectors that each bracket pair returns are ephemeral copies, rather than references. It would have worked in Python.</p>
+</div>
+<div class="section" id="atomics">
+<h2>Atomics<a class="headerlink" href="#atomics" title="Permalink to this headline">¶</a></h2>
+<p>A fundamental aspect of k is that many of its verbs are <em>atomic</em>, or <em>pervasive</em>. In simplified terms, this means that a verb that takes scalar arguments will drill through into vectors of any shape and apply at the relevant level. For example, we can add a scalar to a vector:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>23+76 43 29 87 65 12
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99 66 52 110 88 35
+</pre></div>
+</div>
+</div>
+</div>
+<p>Indeed, we can add a scalar to <em>any</em> shape vector, even ragged ones: [<a class="reference external" href="https://ngn.bitbucket.io/k#eJzLtdIwVjBUMLI2VTBRMLbWsABzjBSMFUw0NRUU9BWKEtPTU1MUEouKEiu5crVNTQEJTwul">try it</a>]</p>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>:m:(3 1 2;5 4 3;(8 1 2;2 3 4))  / ragged array
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3 1 2
+ 5 4 3
+ (8 1 2;2 3 4))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_no-link docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>m+55                            / add 55 to each atom
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(58 56 57
+ 60 59 58
+ (63 56 57;57 58 59))
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can add two vectors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>26 34 57 98+76 53 48 10
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>102 87 105 108
+</pre></div>
+</div>
+</div>
+</div>
+<p>…provided they’re of the same length:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>26 34 57 98+76 53 48       / &#39;length error
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;length
+26 34 57 98+76 53 48       / &#39;length error
+           ^
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "ngnk"
+        },
+        kernelOptions: {
+            kernelName: "ngnk",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ngnk'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Introduction.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Verbs.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Built-in verbs</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Stefan Kruger, Computational Array and Magic<br/>
+        
+            &copy; Copyright 2021.<br/>
+          <div class="extra_footer">
+            <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a></p>
+<p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
