@@ -709,11 +709,10 @@ s[0]*s[1]-s[2]  / forward sum * (down sum - up sum)
 </div>
 </div>
 <p>In naive Python, perhaps you’d written that as</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">result</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">v</span>
 </pre></div>
 </div>
 <p>Flip the slash to a backslash, and (as you may have suspected already) you’ll get the full sequence of intermediate results:</p>
@@ -734,11 +733,10 @@ s[0]*s[1]-s[2]  / forward sum * (down sum - up sum)
 <h2>While <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">f/</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">f\</span></code><a class="headerlink" href="#while-f-f-f-f" title="Permalink to this headline">¶</a></h2>
 <p>Pass a predicate verb to the left of <code class="docutils literal notranslate"><span class="pre">f/</span></code> and we instead have a <em>while</em> loop. It will repeatedly call the monad on its own result as long as the left argument verb, called on the result, returns non-zero.</p>
 <p>In Python:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">whileg</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-    <span class="k">while</span> <span class="n">g</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">result</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">whileg</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">g</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">v</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
@@ -749,19 +747,6 @@ s[0]*s[1]-s[2]  / forward sum * (down sum - up sum)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
-</pre></div>
-</div>
-</div>
-</div>
-<p>The <em>while</em> adverb will always execute its monad at least once:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ngnk notranslate"><div class="highlight"><pre><span></span>{x&lt;0}{x*2}/1
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
