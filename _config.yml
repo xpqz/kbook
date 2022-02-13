@@ -40,3 +40,4 @@ sphinx:
     config:
         html_show_copyright: true
         nb_merge_streams: true
+        html_favicon: favicon.ico
